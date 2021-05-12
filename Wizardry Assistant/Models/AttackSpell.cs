@@ -50,7 +50,7 @@ namespace Wizardry_Assistant.Models
                     where charmSpell.School == School
                         orderby charmSpell.Cost, charmSpell.Amount descending
                             select charmSpell;
-                var currentPips = 1;
+                var currentPips = 0;
                 var multiplier = baseBoost;
                 multiplier = debuffs.Aggregate(multiplier, (f, f1) => f * f1);
                 damage *= multiplier;
@@ -72,7 +72,7 @@ namespace Wizardry_Assistant.Models
                     damage = currentPips * MinDamage * multiplier;
                 }
                 charmsEnum.Dispose();
-                return new SpellResult(damage * currentPips * multiplier, currentPips, spellsRequired, this);
+                return new SpellResult(damage, currentPips, spellsRequired, this);
             }
         }
         

@@ -7,13 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Wizardry_Assistant.Pages
 {
@@ -23,10 +16,12 @@ namespace Wizardry_Assistant.Pages
     public partial class SpellCalculationPage : Page
     {
         private BindingList<float> debuffs = new BindingList<float>();
+        private WizardController w;
         
         public SpellCalculationPage()
         {
             InitializeComponent();
+            w = WizardController.Instance;
             PipsLabel.Text = WizardController.Instance.CurrentSpell.XCost ? "Pips to cast with" : "Pips Required";
         }
 
@@ -34,9 +29,12 @@ namespace Wizardry_Assistant.Pages
         {
             BoostListView.Items.Clear();
             int.TryParse(((TextBox) sender).Text, out var enemyHealth);
-            var result = await Task.Run(() => WizardController.Instance.CalculateDamage(enemyHealth, debuffs.ToList()));
+            var result = await Task.Run(() => w.CurrentSpell.CalculateDamage(enemyHealth,
+                w.BaseDamage,
+                debuffs.ToList(),
+                w.CharmSpells));
             BaseDamageBlock.Text =
-                $"{WizardController.Instance.CurrentSpell.MinDamage} - {WizardController.Instance.CurrentSpell.MaxDamage}";
+                $"{w.CurrentSpell.MinDamage} - {w.CurrentSpell.MaxDamage}";
             foreach (var charmSpell in result.CharmsRequired) {
                 BoostListView.Items.Add(charmSpell);
             }
