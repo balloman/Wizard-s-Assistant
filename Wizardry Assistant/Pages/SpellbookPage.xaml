@@ -13,8 +13,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,15 +20,16 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Button x:Name="WizardButton" Content="Wizard" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Click="WizardButton_OnClick"/>
+        <Button x:Name="WizardButton" Content="Wizard" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="16" Click="WizardButton_OnClick"/>
 
-        <TextBlock Text="Spells" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="Charms" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Text="Spells" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Charms" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
 
-        <ListBox x:Name="SpellListBox" Grid.Row="2" Grid.Column="1" SelectionMode="Single" MouseDoubleClick="SpellListBox_OnMouseDoubleClick"/>
-        <ListBox x:Name="CharmListBox"  Grid.Row="2" Grid.Column="2" SelectionMode="Single"/>
+        <ListBox x:Name="SpellListBox" Grid.Row="2" Grid.Column="0" SelectionMode="Single" MouseDoubleClick="SpellListBox_OnMouseDoubleClick"/>
+        <ListBox x:Name="CharmListBox"  Grid.Row="2" Grid.Column="1" SelectionMode="Single"/>
 
-        <Button x:Name="AddSpellButton" Grid.Row="3" Grid.Column="1" Content="Add Spell" Click="AddSpellButton_OnClick"/>
-        <Button x:Name="AddCharmButton" Grid.Row="3" Grid.Column="2" Content="Add Charm" Click="AddCharmButton_OnClick"/>
+        <Button x:Name="AddSpellButton" Grid.Row="3" Grid.Column="0" Content="Add Spell" Click="AddSpellButton_OnClick"/>
+        <Button x:Name="AddCharmButton" Grid.Row="3" Grid.Column="1" Content="Add Charm" Click="AddCharmButton_OnClick"/>
+
     </Grid>
 </Page>

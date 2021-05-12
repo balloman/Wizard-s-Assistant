@@ -39,17 +39,14 @@
                 <TextBlock Text="%" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
             </StackPanel>
             <Button Content="Add" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" MinWidth="50" Click="AddDebuff"/>
-            <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" MinHeight="30"></ListView>
+            <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
         </Grid>
         
         <StackPanel Grid.Column="1">
             
             <TextBlock Text="Optimal Boosts" FontWeight="Bold" FontSize="20" Margin="0,10,10,10" HorizontalAlignment="Center" />
             <Border Height="10" Background="Coral"></Border>
-            <ListView MinHeight="30" x:Name="BoostListView">
-                <ListView.View><GridView>
-                </GridView></ListView.View>
-            </ListView>
+            <ListView  x:Name="BoostListView"/>
             <Grid VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

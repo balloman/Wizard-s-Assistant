@@ -13,9 +13,9 @@ namespace Wizardry_Assistant.Models
 
         public override string ToString()
         {
-            return Name;
+            return XCost ? $"X\t{Name}\t{MinDamage}" : $"{Cost}\t{Name}\t{MinDamage} - {MaxDamage}";
         }
-        
+
         public SpellResult CalculateDamage(float enemyHealth, float baseBoost, List<float> debuffs,
             List<CharmSpell> charmSpells)
         {

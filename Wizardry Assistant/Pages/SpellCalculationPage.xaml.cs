@@ -38,7 +38,7 @@ namespace Wizardry_Assistant.Pages
             foreach (var charmSpell in result.CharmsRequired) {
                 BoostListView.Items.Add(charmSpell);
             }
-
+            BoostListView.Items.Refresh();
             FinalDamageBlock.Text = result.Damage.ToString(CultureInfo.InvariantCulture);
             PipsRequiredBlock.Text = result.PipsRequired.ToString(CultureInfo.InvariantCulture);
             CritDamageBlock.Text = (result.Damage * 2).ToString(CultureInfo.InvariantCulture);
