@@ -1,0 +1,41 @@
+{
+  "Spellbook": {
+    "Spells": [
+      {
+        "$type": "Wizardry_Assistant.Models.CharmSpell, Wizardry Assistant",
+        "Amount": 1.35,
+        "Cost": 0,
+        "School": 0,
+        "Name": "Stormblade"
+      },
+      {
+        "$type": "Wizardry_Assistant.Models.AttackSpell, Wizardry Assistant",
+        "MinDamage": 80,
+        "MaxDamage": 80,
+        "XCost": true,
+        "Cost": 0,
+        "School": 0,
+        "Name": "Tempest"
+      }
+    ],
+    "Charms": [
+      {
+        "Amount": 1.35,
+        "Cost": 0,
+        "School": 0,
+        "Name": "Stormblade"
+      }
+    ],
+    "Attacks": [
+      {
+        "MinDamage": 80,
+        "MaxDamage": 80,
+        "XCost": true,
+        "Cost": 0,
+        "School": 0,
+        "Name": "Tempest"
+      }
+    ]
+  },
+  "BaseDamage": 1.5
+}

@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "ioV6Pcep3O8Ey1v5xgyHYS1A3cADo3yZzN67NnjYYJV1Oulyi3QL1TiUa48VJouO2JfFgm4jOOT2TH4eaK3Q3g==",
+  "success": true,
+  "projectFilePath": "D:\\Users\\benar\\workspace\\C#\\Wizardry Assistant\\Wizardry Assistant\\Wizardry Assistant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\benar\\.nuget\\packages\\extended.wpf.toolkit\\4.0.2\\extended.wpf.toolkit.4.0.2.nupkg.sha512",
+    "C:\\Users\\benar\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Extended.Wpf.Toolkit 4.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}
