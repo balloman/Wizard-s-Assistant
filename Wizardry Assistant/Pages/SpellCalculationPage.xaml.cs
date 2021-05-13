@@ -37,8 +37,8 @@ namespace Wizardry_Assistant.Pages
             }
 
             int.TryParse(DebuffBox.Text, out var debuffAmount);
-            debuffs.Add(1 - (float) debuffAmount / 100);
-            DebuffsListView.Items.Add($"-{debuffAmount}%");
+            debuffs.Add(1 + (float) debuffAmount / 100);
+            DebuffsListView.Items.Add($"{debuffAmount}%");
             Calculate();
         }
 
