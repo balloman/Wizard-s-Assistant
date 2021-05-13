@@ -39,7 +39,7 @@
                 <TextBlock Text="%" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
             </StackPanel>
             <Button Content="Add" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" MinWidth="50" Click="AddDebuff"/>
-            <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" x:Name="DebuffsListView"/>
         </Grid>
         
         <StackPanel Grid.Column="1">

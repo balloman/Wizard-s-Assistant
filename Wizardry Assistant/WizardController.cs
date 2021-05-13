@@ -98,7 +98,7 @@ namespace Wizardry_Assistant
             }
         }
         
-        public void UpdateListBox<T>(ListBox box, IEnumerable<T> items)
+        public void UpdateListBox<T>(ItemsControl box, IEnumerable<T> items)
         {
             box.Items.Clear();
             foreach (var item in items) {

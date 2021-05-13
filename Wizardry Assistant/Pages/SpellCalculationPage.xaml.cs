@@ -15,8 +15,8 @@ namespace Wizardry_Assistant.Pages
     /// </summary>
     public partial class SpellCalculationPage : Page
     {
-        private BindingList<float> debuffs = new BindingList<float>();
-        private WizardController w;
+        private List<float> debuffs = new List<float>();
+        private readonly WizardController w;
         
         public SpellCalculationPage()
         {
@@ -25,10 +25,27 @@ namespace Wizardry_Assistant.Pages
             PipsLabel.Text = WizardController.Instance.CurrentSpell.XCost ? "Pips to cast with" : "Pips Required";
         }
 
-        private async void HealthBlock_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void HealthBlock_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Calculate();
+        }
+
+        private void AddDebuff(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(DebuffBox.Text)) {
+                return;
+            }
+
+            int.TryParse(DebuffBox.Text, out var debuffAmount);
+            debuffs.Add(1 - (float) debuffAmount / 100);
+            DebuffsListView.Items.Add($"-{debuffAmount}%");
+            Calculate();
+        }
+
+        private async void Calculate()
         {
             BoostListView.Items.Clear();
-            int.TryParse(((TextBox) sender).Text, out var enemyHealth);
+            int.TryParse(HealthBlock.Text, out var enemyHealth);
             var result = await Task.Run(() => w.CurrentSpell.CalculateDamage(enemyHealth,
                 w.BaseDamage,
                 debuffs.ToList(),
@@ -42,16 +59,6 @@ namespace Wizardry_Assistant.Pages
             FinalDamageBlock.Text = result.Damage.ToString(CultureInfo.InvariantCulture);
             PipsRequiredBlock.Text = result.PipsRequired.ToString(CultureInfo.InvariantCulture);
             CritDamageBlock.Text = (result.Damage * 2).ToString(CultureInfo.InvariantCulture);
-        }
-
-        private void AddDebuff(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(DebuffBox.Text)) {
-                return;
-            }
-
-            int.TryParse(DebuffBox.Text, out var debuffAmount);
-            debuffs.Add(debuffAmount);
         }
     }
 }

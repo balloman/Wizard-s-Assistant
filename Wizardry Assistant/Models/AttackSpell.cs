@@ -20,12 +20,13 @@ namespace Wizardry_Assistant.Models
             List<CharmSpell> charmSpells)
         {
             if (!XCost) {
-                float totalDamage = MinDamage;
-                totalDamage *= baseBoost;
-                foreach (var debuff in debuffs) {
-                    totalDamage *= debuff;
-                }
+                float damage = MinDamage;
+                damage *= baseBoost;
+                damage = debuffs.Aggregate(damage, (f, f1) => f * f1);
                 var totalCost = (int) Cost;
+                if (damage > enemyHealth) {
+                    return new SpellResult(damage, totalCost, new List<CharmSpell>(), this);
+                }
                 var spellsRequired = new List<CharmSpell>();
                 var validSpellsQuery =
                     from charmSpell in charmSpells
@@ -33,14 +34,14 @@ namespace Wizardry_Assistant.Models
                         orderby charmSpell.Cost, charmSpell.Amount descending 
                             select charmSpell;
                 foreach (var charmSpell in validSpellsQuery) {
-                    totalDamage *= charmSpell.Amount;
+                    damage *= charmSpell.Amount;
                     totalCost += (int) charmSpell.Cost;
                     spellsRequired.Add(charmSpell);
-                    if (totalDamage >= enemyHealth) {
+                    if (damage >= enemyHealth) {
                         break;
                     }
                 }
-                return new SpellResult(totalDamage, totalCost, spellsRequired, this);
+                return new SpellResult(damage, totalCost, spellsRequired, this);
             }
             else {
                 float damage = MinDamage;
